@@ -1,0 +1,50 @@
+from PyQt5.QtWidgets import  QApplication, QWidget, QLabel,  QMessageBox,QRadioButton
+
+app = QApplication([])
+win = QWidget()
+win.setWindowTitle('Конкурс від Crazy People')
+win.resize(600, 300)
+question = QLabel(win)
+question.setText('Як звали першого ютуб-блогера, який набрав 100000000 підписників?')
+question.move(75, 15)
+
+button1 = QRadioButton(win)
+button1.setText('Рет і Лінк')
+button1.move(150, 90)
+
+button2 = QRadioButton(win)
+button2.setText('SlivkiShow')
+button2.move(190, 90)
+
+button3 = QRadioButton(win)
+button3.setText('PewDiePie ')
+button3.move(230, 90)
+
+button4 = QRadioButton(win)
+button4.setText('TheBrianMaps,')
+button4.move(150, 180)
+
+button5 = QRadioButton(win)
+button4.setText('Mister Max')
+button4.move(190, 180)
+
+button6 = QRadioButton(win)
+button4.setText('EeOneGuy')
+button4.move(230, 180)
+
+def show_win():
+    win2 = QMessageBox()
+    win2.setText('правильно! Ви виграли б-у-шну палbxку від морозива')
+    win2.exec_()
+
+button3.clicked.connect(show_win)
+def show_lose():
+    win2 = QMessageBox()
+    win2.setText('Ні, в &^:* році. Ви виграли нічого')
+    win2.exec_()
+button2.clicked.connect(show_lose)
+button4.clicked.connect(show_lose)
+button1.clicked.connect(show_lose)
+
+win.show()
+app.exec_()
